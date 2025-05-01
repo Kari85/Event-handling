@@ -1,0 +1,25 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-random-number-generator',
+  templateUrl: './random-number-generator.component.html',
+  styleUrls: ['./random-number-generator.component.css']
+})
+export class RandomNumberGeneratorComponent {
+  randomNumber: number | null = null;
+  inputValue: number | null = null;
+  result: number | null = null;
+
+  updateInputValue(event: any) {
+    this.inputValue = parseInt(event.target.value, 10);
+    if (isNaN(this.inputValue)) {
+      this.inputValue = null; // Reset if the input is not a valid number
+    }
+  }
+
+  generateAndAdd() {
+    const random = Math.floor(Math.random() * 100) + 1;
+    this.randomNumber = random;
+    this.result = this.inputValue !== null ? random + this.inputValue : random;
+  }
+}
