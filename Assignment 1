@@ -1,0 +1,14 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-random-number-generator',
+  templateUrl: './random-number-generator.component.html',
+  styleUrls: ['./random-number-generator.component.css']
+})
+export class RandomNumberGeneratorComponent {
+  randomNumber: number | null = null;
+
+  generateRandom() {
+    this.randomNumber = Math.floor(Math.random() * 100) + 1; // Generates a random integer between 1 and 100
+  }
+}
