@@ -1,0 +1,26 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
+
+import { AppComponent } from './app.component';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
+import { JsonPipeDemoComponent } from './json-pipe-demo/json-pipe-demo.component';
+import { ReverseAndLettersPipe } from './reverse-and-letters.pipe'; // Import the custom pipe
+import { CustomPipeDemoComponent } from './custom-pipe-demo/custom-pipe-demo.component'; // Import the new component
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    PipeDemoComponent,
+    JsonPipeDemoComponent,
+    ReverseAndLettersPipe, // Declare the custom pipe
+    CustomPipeDemoComponent // Declare the new component
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule // Add FormsModule to imports
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
