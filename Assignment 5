@@ -1,0 +1,11 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-json-pipe-demo',
+  templateUrl: './json-pipe-demo.component.html',
+  styleUrls: ['./json-pipe-demo.component.css']
+})
+export class JsonPipeDemoComponent {
+  testObject = { name: 'Sam', age: 51, job: 'Teacher' };
+  testArray = [5, 15, 53, 1, 2];
+}
