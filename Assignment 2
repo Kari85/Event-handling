@@ -1,25 +1,15 @@
-import { Component } from '@angular/core';
+<h2>Random Number Generator with Addition</h2>
+<p>This application generates a random number between 1 and 100. You can optionally enter a number in the input field below, and it will be added to the random number when you press the button.</p>
 
-@Component({
-  selector: 'app-random-number-generator',
-  templateUrl: './random-number-generator.component.html',
-  styleUrls: ['./random-number-generator.component.css']
-})
-export class RandomNumberGeneratorComponent {
-  randomNumber: number | null = null;
-  inputValue: number | null = null;
-  result: number | null = null;
+<div>
+  <label for="inputNumber">Enter a number (optional): </label>
+  <input type="number" id="inputNumber" (input)="updateInputValue($event)">
+</div>
 
-  updateInputValue(event: any) {
-    this.inputValue = parseInt(event.target.value, 10);
-    if (isNaN(this.inputValue)) {
-      this.inputValue = null; // Reset if the input is not a valid number
-    }
-  }
+<button (click)="generateAndAdd()">Generate and Add</button>
 
-  generateAndAdd() {
-    const random = Math.floor(Math.random() * 100) + 1;
-    this.randomNumber = random;
-    this.result = this.inputValue !== null ? random + this.inputValue : random;
-  }
-}
+<div *ngIf="randomNumber !== null">
+  <p>Random Number: {{ randomNumber }}</p>
+  <p *ngIf="inputValue !== null">Input Number: {{ inputValue }}</p>
+  <p>Result: {{ randomNumber }} <span *ngIf="inputValue !== null">+ {{ inputValue }}</span> = {{ result }}</p>
+</div>
