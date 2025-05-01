@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+import { interval, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-async-example',
+  templateUrl: './async-example.component.html',
+  styleUrls: ['./async-example.component.css']
+})
+export class AsyncExampleComponent implements OnInit {
+  time$: Observable<Date>;
+  messagePromise: Promise<string>;
+
+  ngOnInit(): void {
+    this.time$ = interval(1000).pipe(map(() => new Date()));
+    this.messagePromise = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('Data loaded!');
+      }, 2000);
+    });
+  }
+}
